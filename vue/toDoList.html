@@ -43,6 +43,10 @@
                 <p>{{ doneString }}</p>
             </span>
         </form>
+        <div>
+            <input type="text" v-model="focusArticleId">
+            {{ filterByArticleId }}
+        </div>
     </div>
     <script>
     new Vue({
@@ -51,6 +55,14 @@
             newItem: "",
             toDoList: ['洗衣服', '澆花', '拖地'],
             doneList: [],
+            articles: {
+                1: { title: "test1" },
+                2: { title: "test2" },
+                3: { title: "test3" },
+                4: { title: "test4" },
+                5: { title: "test5" }
+            },
+            focusArticleId: '',
         },
         methods: {
             pushNewItem: function() {
@@ -60,6 +72,11 @@
         computed: {
             doneString: function() {
                 return this.doneList.join(',');
+            },
+            filterByArticleId: function() {
+                if (this.focusArticleId) {
+                    return this.articles[this.focusArticleId];
+                }
             }
         }
     })

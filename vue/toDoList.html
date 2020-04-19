@@ -8,7 +8,9 @@
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="">
     <style>
-
+        span {
+            color:  red;
+        }
     </style>
 </head>
 
@@ -21,7 +23,7 @@
                 placeholder="Enter something"
                 v-model="newItem"
             >
-            <button @click.once="pushNewItem">新增</button>
+            <button @click="pushNewItem">新增</button>
         </label>
         <i>{{ newItem}}</i>
         <hr>
@@ -37,6 +39,9 @@
                 </label>
             </div>
             <pre>{{ doneList }}</pre>
+            <span>
+                <p>{{ doneString }}</p>
+            </span>
         </form>
     </div>
     <script>
@@ -50,6 +55,11 @@
         methods: {
             pushNewItem: function() {
                 this.toDoList.push(this.newItem);
+            }
+        },
+        computed: {
+            doneString: function() {
+                return this.doneList.join(',');
             }
         }
     })

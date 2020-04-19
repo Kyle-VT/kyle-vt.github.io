@@ -32,8 +32,13 @@
             <br />
             <input type="text" v-model="formData.inputText">
             <span>{{ title }}</span>
-            <select name="" id="" v-model="formData.select">
-                <option v-for="option in options" :value="option">{{ option }}</option>
+            <select name="" id="" v-model="formData.select" v-if="!options.includes('')">
+                <option
+                    v-for="option in options"
+                    v-if="option != 'option2'"
+                    :value="option">
+                    {{ option }}
+                </option>
             </select>
             <label for="">
                 <input type="checkbox" value="check1" v-model="formData.checkbox">
@@ -60,7 +65,7 @@
             title: "Hello, Vue!",
             className1: "header1",
             className2: "header2",
-            options: ['option1', 'option2', 'option3', 'option4', 'option5'],
+            options: ['option1', 'option2', '3', 'option4', '5', ''],
             style: {
                 redText: "red",
                 textColor: "gray"

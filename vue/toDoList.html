@@ -72,6 +72,11 @@
             checkboxFormat: (str) => {
                 return `| ${str} |`;
             }
+        },
+        watch: {
+            toDoList: function() {
+                alert('已新增新項目！');
+            }
         }
     })
     </script>

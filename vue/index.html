@@ -33,9 +33,7 @@
             <input type="text" v-model="formData.inputText">
             <span>{{ title }}</span>
             <select name="" id="" v-model="formData.select">
-                <option value="option1">Option1</option>
-                <option value="option2">Option2</option>
-                <option value="option3">Option3</option>
+                <option v-for="option in options" :value="option">{{ option }}</option>
             </select>
             <label for="">
                 <input type="checkbox" value="check1" v-model="formData.checkbox">
@@ -50,15 +48,19 @@
                 checkbox3
             </label>
         </form>
-        <pre>{{ formData }}</pre>
+        <!-- <pre v-if="formData.inputText != ''">{{ formData }}</pre> -->
+        <pre v-if="showTheTemplate">{{ formData }}</pre>
+        <p v-else>無資料</p>
     </div>
     <script>
     var vm = new Vue({
         el: "#app",
         data: {
+            showTheTemplate: true,
             title: "Hello, Vue!",
             className1: "header1",
             className2: "header2",
+            options: ['option1', 'option2', 'option3', 'option4', 'option5'],
             style: {
                 redText: "red",
                 textColor: "gray"
@@ -68,7 +70,7 @@
                 inputPlaceholder: "Enter something",
                 inputText: "",
                 select: "",
-                checkbox: [],
+                checkbox: []
             }
         }
     })

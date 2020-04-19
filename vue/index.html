@@ -6,16 +6,44 @@
     <title>Vue Blog</title>
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <link rel="stylesheet" href="">
+    <style>
+        .header1 {
+            color:  red;
+        }
+
+        .header2 {
+            color:  blue;
+        }
+    </style>
 </head>
 <body>
     <div id="app">
-        {{ title }}
+        <p v-bind:class="className1">{{ title }}</p>
+        <p v-bind:class="className2">{{ title }}</p>
+        <p :style="{'background-color': style.redText, 'color': style.textColor}">{{ title }}</p>
+        <form action="">
+            <input
+                type="text"
+                :value="formData.inputValue"
+                :placeholder="formData.inputPlaceholder"
+            >
+        </form>
     </div>
     <script>
         var vm = new Vue({
             el: "#app",
             data: {
                 title: "Hello, Vue!",
+                className1: "header1",
+                className2: "header2",
+                style: {
+                    redText: "red",
+                    textColor: "gray"
+                },
+                formData: {
+                    inputValue: "vue-test",
+                    inputPlaceholder: "Enter something"
+                }
             }
         })
     </script>

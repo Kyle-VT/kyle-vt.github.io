@@ -53,6 +53,8 @@
                 checkbox3
             </label>
         </form>
+        <button @click="changeTitle(123)">Click Me</button>
+        <pre>{{ arr }}</pre>
         <!-- <pre v-if="formData.inputText != ''">{{ formData }}</pre> -->
         <pre v-if="showTheTemplate">{{ formData }}</pre>
         <p v-else>無資料</p>
@@ -66,6 +68,7 @@
             className1: "header1",
             className2: "header2",
             options: ['option1', 'option2', '3', 'option4', '5', ''],
+            arr: [],
             style: {
                 redText: "red",
                 textColor: "gray"
@@ -77,8 +80,16 @@
                 select: "",
                 checkbox: []
             }
+        },
+        methods: {
+            changeTitle: function(val) {
+                this.title = "這個資料被 method 改變了";
+                this.arr.push(val);
+            }
         }
-    })
+    });
+
+    console.log(vm.title);
     </script>
 </body>
 

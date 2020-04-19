@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,38 +15,64 @@
         .header2 {
             color:  blue;
         }
+
+        span {
+            color: orange;
+        }
     </style>
 </head>
+
 <body>
     <div id="app">
         <p v-bind:class="className1">{{ title }}</p>
         <p v-bind:class="className2">{{ title }}</p>
         <p :style="{'background-color': style.redText, 'color': style.textColor}">{{ title }}</p>
         <form action="">
-            <input
-                type="text"
-                :value="formData.inputValue"
-                :placeholder="formData.inputPlaceholder"
-            >
+            <input type="text" :value="formData.inputValue" :placeholder="formData.inputPlaceholder">
+            <br />
+            <input type="text" v-model="formData.inputText">
+            <span>{{ title }}</span>
+            <select name="" id="" v-model="formData.select">
+                <option value="option1">Option1</option>
+                <option value="option2">Option2</option>
+                <option value="option3">Option3</option>
+            </select>
+            <label for="">
+                <input type="checkbox" value="check1" v-model="formData.checkbox">
+                checkbox1
+            </label>
+            <label for="">
+                <input type="checkbox" value="check2" v-model="formData.checkbox">
+                checkbox2
+            </label>
+            <label for="">
+                <input type="checkbox" value="check3" v-model="formData.checkbox">
+                checkbox3
+            </label>
         </form>
+        <pre>{{ formData }}</pre>
     </div>
     <script>
-        var vm = new Vue({
-            el: "#app",
-            data: {
-                title: "Hello, Vue!",
-                className1: "header1",
-                className2: "header2",
-                style: {
-                    redText: "red",
-                    textColor: "gray"
-                },
-                formData: {
-                    inputValue: "vue-test",
-                    inputPlaceholder: "Enter something"
-                }
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            title: "Hello, Vue!",
+            className1: "header1",
+            className2: "header2",
+            style: {
+                redText: "red",
+                textColor: "gray"
+            },
+            formData: {
+                inputValue: "vue-test",
+                inputPlaceholder: "Enter something",
+                inputText: "",
+                select: "",
+                checkbox: [],
             }
-        })
+        }
+    })
     </script>
 </body>
+
 </html>

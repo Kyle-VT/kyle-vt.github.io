@@ -14,13 +14,38 @@
 
 <body>
     <div id="app">
-
+        <label for="">
+            新增代辦事項
+            <input
+                type="text"
+                placeholder="Enter something"
+                v-model="newItem"
+            >
+            <button>新增</button>
+        </label>
+        <i>{{ newItem}}</i>
+        <hr>
+        <form>
+            <div>
+                <label v-for="item in toDoList">
+                    <input
+                        type="checkbox"
+                        :value="item"
+                        v-model="doneList"
+                    >
+                    {{ item }}
+                </label>
+            </div>
+            <pre>{{ doneList }}</pre>
+        </form>
     </div>
     <script>
-    var vm = new Vue({
+    new Vue({
         el: "#app",
         data: {
-
+            newItem: "",
+            toDoList: ['洗衣服', '澆花', '拖地'],
+            doneList: [],
         }
     })
     </script>

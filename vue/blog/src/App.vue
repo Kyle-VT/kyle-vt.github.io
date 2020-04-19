@@ -3,11 +3,11 @@
   <!-- <div id="nav">
     <router-link to="/">Home</router-link> |
     <router-link to="/about">About</router-link>
-  </div>
-  <router-view/> -->
+  </div> -->
+   <Header />
   <!-- <HelloWorld :msg="test" /></HelloWorld> -->
-  <HelloWorld :msg="test" />
-  <Test />
+  <!-- <HelloWorld :msg="test" /> -->
+  <router-view/>
 </div>
 </template>
 <stylesheet lang="scss">
@@ -17,8 +17,9 @@
 </template>
 
 <script>
-  import HelloWorld from '@/components/HelloWorld';
-  import Test from '@/components/Test';
+  // import HelloWorld from '@/components/HelloWorld';
+  // import Test from '@/components/Test';
+  import Header from '@/components/Header';
 
   export default {
     data () {
@@ -28,8 +29,7 @@
       }
     },
     components: {
-      HelloWorld,
-      Test,
+      Header,
     }
   }
 </script>

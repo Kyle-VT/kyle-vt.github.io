@@ -21,7 +21,7 @@
                 placeholder="Enter something"
                 v-model="newItem"
             >
-            <button @click="pushNewItem">新增</button>
+            <button @click.once="pushNewItem">新增</button>
         </label>
         <i>{{ newItem}}</i>
         <hr>

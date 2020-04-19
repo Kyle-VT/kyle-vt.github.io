@@ -21,7 +21,7 @@
                 placeholder="Enter something"
                 v-model="newItem"
             >
-            <button>新增</button>
+            <button @click="pushNewItem">新增</button>
         </label>
         <i>{{ newItem}}</i>
         <hr>
@@ -46,6 +46,11 @@
             newItem: "",
             toDoList: ['洗衣服', '澆花', '拖地'],
             doneList: [],
+        },
+        methods: {
+            pushNewItem: function() {
+                this.toDoList.push(this.newItem);
+            }
         }
     })
     </script>

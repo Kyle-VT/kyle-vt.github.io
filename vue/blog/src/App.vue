@@ -20,14 +20,9 @@
   // import HelloWorld from '@/components/HelloWorld';
   // import Test from '@/components/Test';
   import Header from '@/components/Header';
+  import axios from 'axios';
 
   export default {
-    data () {
-      return {
-        count: 0,
-        test: 'test',
-      }
-    },
     components: {
       Header,
     }

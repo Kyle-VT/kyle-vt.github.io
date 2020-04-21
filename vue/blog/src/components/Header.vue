@@ -13,6 +13,12 @@
                         <b-nav-item>
                             <router-link to="/about">About</router-link>
                         </b-nav-item>
+                        <b-nav-item>
+                            <router-link to="/login">Login</router-link>
+                        </b-nav-item>
+                        <b-nav-item>
+                            <router-link to="/admin">Admin</router-link>
+                        </b-nav-item>
                     </b-navbar-nav>
                     <b-nav-form>
                         <b-form-input size="sm" class="mr-sm-2" placeholder="Search"></b-form-input>

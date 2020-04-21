@@ -21,7 +21,7 @@ Vue.use(VueRouter)
     component: About
   },
   {
-    path: '/article',
+    path: '/article/:id',
     name: 'Article',
     component: Article
   },

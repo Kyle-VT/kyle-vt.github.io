@@ -5,6 +5,7 @@ import About from '@/views/About'
 import Article from '@/views/Article'
 import Login from '@/views/Login'
 import Admin from '@/views/Admin'
+import AdminHome from '@/views/Admin/AdminHome'
 import Add from '@/views/Admin/Add'
 import NotFound404 from '@/views/NotFound404'
 
@@ -39,10 +40,10 @@ Vue.use(VueRouter)
       {
         path: '/',
         name: 'Admin-Home',
-        component: Admin
+        component: AdminHome
       },
       {
-        path: '/add',
+        path: 'add',
         name: 'Admin-Add',
         component: Add
       }

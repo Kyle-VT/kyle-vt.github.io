@@ -1,12 +1,14 @@
 <template>
     <div>
         <h1>Admin-Home</h1>
-        <p>{{ account }}</p>
+        <p>Account: {{ account }}</p>
+        <p>{{ articles }}</p>
+        <button @click="fetchArticles">Dispatch fetchArticles</button>
     </div>
 </template>
 
 <script>
-    import { mapState } from 'vuex'
+    import { mapState, mapActions } from 'vuex'
 
     export default {
         data () {
@@ -14,8 +16,11 @@
                 test: "test",
             }
         },
+        methods: {
+            ...mapActions(['fetchArticles'])
+        },
         computed: {
-            ...mapState(['account'])
+            ...mapState(['account', 'articles'])
         }
     }
 </script>

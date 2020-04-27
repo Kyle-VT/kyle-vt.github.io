@@ -10,27 +10,18 @@
 
 <script>
 
+import { mapState } from 'vuex'
 import axios from "axios";
 
 export default {
     name: 'Home',
-    mounted() {
-        const api = "https://us-central1-expressapi-8c039.cloudfunctions.net/app/article";
-        axios.get(api)
-            .then(result => {
-            // console.log(result.data);
-            this.articles = result.data.data;
-        });
-    },
-    data () {
-        return {
-            articles: [],
-        }
-    },
     methods: {
         routerToArticle: function(id) {
             this.$router.push({name: "Article", params: {id:id}})
         }
+    },
+    computed: {
+        ...mapState(['articles']),
     },
     filters: {
         subContent: (content) => {
